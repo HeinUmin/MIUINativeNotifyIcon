@@ -663,7 +663,7 @@ object SystemUIHooker : YukiBaseHooker() {
      * @param instance 被 Hook 的 Method 的实例
      */
     private fun hookStatusBarMaxStaticIcons(fieldName: String, instance: Any) {
-        if (isMiOS && ConfigData.isEnableLiftedStatusIconCount.not()) return
+        if (isMIOS && ConfigData.isEnableLiftedStatusIconCount.not()) return
         val maxStaticIconsField = NotificationIconContainerClass.field { name = fieldName }.get(instance)
         if (statusBarMaxStaticIcons == -1) statusBarMaxStaticIcons = maxStaticIconsField.int()
         /** 解除状态栏通知图标个数限制 */
